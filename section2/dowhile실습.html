@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        //do while 반복문 실습
+        let pw = "green";
+        let count = 0;
+        do {
+            pw = prompt("비밀번호를 입력해주세요");
+            count++;
+        }
+        while ((pw != "green") && (count <5))
+        // 횟수가 5이하일때 참이고, 패스워드가 틀렸을때 참이다.
+        document.write(`${count}회만에 맞췄습니다`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f() { // 감싸고 있는 함수 = 상위함수
+            let value = 123; 
+            function g() { // 함수 안에서 생성된 함수
+                alert(value); // 상위함수의 값 접근가능
+            }
+            g(); // 안쪽 함수를 호출을 해준다
+        }
+
+        f();
+        // 이때 console창에서 g()로 부르면 존재하지 않지만 
+        // f()로 부르면 123이 alert창으로 뜬느걸 확인할수있다.
+
+        // 중첩함수 실습
+
+        function add(a,b) {
+            let sum = a+b;
+            function printNum() {
+                document.write(`합 : ${sum}`);
+            }
+            printNum();
+        }
+
+        add(5,6);
+
+        let globalCount = 0;
+        function CountG() {
+            globalCount++; // globalCount += 1 로 사용해도 상관없음
+        }   //CountG를 사용한만큼 globalCount의 수가 1씩 증가해서 변함
+
+        // 클로저 함수 (안에있는 함수를 전역함수처럼 사용하게끔 만들어줌)
+        // 클로저 함수란 외부 함수의 실행이 끝나더라도 외부 함수 내 변수를 사용할수있는것
+        function CountL() {
+            let localCount = 0; // 이 함수를 전역변수처럼 사용
+            return function() { // return을 통해 익명함수를 되돌려줌
+                return localCount+=1;
+            };
+        }
+        // 클로저 함수를 사용하기 위한 함수
+        let countTest = CountL();
+
+        alert(countTest());
+        alert(countTest());
+        alert(countTest());
+
+        // 람다형식
+        let lamda = ( function() {return "람다형식입니다";}) ();
+        // (function() {return "람다형식입니다"}) 까지 묶어서 이름없는 함수
+
+        // 책 134p의 클로저 함수 > 람다형식을 이용
+        let count = (function () { 
+            let localCount = 0; // 이 함수를 전역변수처럼 사용
+            return function() { // return을 통해 익명함수를 되돌려줌
+                return localCount+=1;
+            };
+        }) ();
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>이벤트가 실행되는 DOM객체입니다</h1>
+    <h3>비동기함수가 실행됭는 DOM객체입니다</h3>
+
+    <script>
+        // 위 아래로 진행되는 코드
+        const h1 = document.querySelector("h1");
+        const h3 = document.querySelector("h3");
+        let score = 0;    //위와같이 변수를 선언하고 그 값을 들고오는것과 둘다 같음
+
+        score ++;
+
+        // 함수
+        function eventFunc () {  // evnetFunc 함수 실행시 h1의 텍스트를 스코어로함
+            h1.textContent = score; 
+        }
+        // 이벤트
+        h1.addEventListener("click",eventFunc); 
+        // 비동기함수(ex.setTimeout)
+        setTimeout(  // 3초후에 h3이 score로 바뀜
+            function() {
+                h3.textContent = score;
+            },
+        3000);
+    </script>
+</body>
+</html>

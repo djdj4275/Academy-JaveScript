@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let checkstr = "aBcde1";
+        let str = /b/i;   // //사이에 글자가 몇번째에 있는지 찾아줌
+        // 뒤에 붙는 i는 대소문자를 구분하지 않고 찾는다는 의미
+        // 찾는값이 없다면 -1로 도출되게 됨
+        let strnum = /\d/; // \d는 0~9사이의 숫자를 찾음 ([0-9]로 해도 가능)
+
+        // 정규식을 사용하면 복잡한 규칙을 가진 문자열들을 확인하기 쉽다.
+
+        console.log(checkstr.search(str));
+        console.log(checkstr.search(strnum));
+    </script>
+</body>
+</html>

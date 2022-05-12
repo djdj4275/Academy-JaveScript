@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let Puppy = { //객체
+            // 속성
+            // 속성값은 문자열, 숫자형 뿐만 아니라 객체 (object)도 들어올수있다.
+            name : "초코", // 리터럴 방식 = 값을 {}로 바로 넣어 확인해주는것
+            // 메서드
+            // 표현식함수(익명함수)로 들어오기에 화살표 함수로도 올수있다
+            eat : function() {
+                document.write("<p>밥을 먹습니다</p>");
+            },
+            namePrint : function() {
+                // this를 이용해서 속성값 또는 메소드를 참조할수있다
+                console.log(this.name+"입니다"); //this는 현재위치(안쪽함수)
+            }
+        }
+
+        // 리터럴 표기를 이용한 객체 생성 실습
+        let person = {
+            name : "홍길동",
+            address : "부산",
+            intro : function () {
+                return this.name+"입니다."+this.address+"에 거주중입니다";
+            }
+        }
+
+        let myCookie = {
+            shape : "원",
+            flavor : "초코",
+            intro : function () {
+                return `${this.shape}모양의 ${this.flavor}맛입니다`;
+            },
+            change : function(shape) { // shape 매개변수를 통해서 값을 받아옴
+                this.shape = shape; // 값을 속성에 할당할수있다.
+            }
+        }
+
+        let tree = new Object(); // 빈 객체를 생성
+        tree.height = 200; // 속성값 추가
+        tree.type = "은행나무" // 속성값 추가
+        tree.fall = function() { // 메소드 추가
+            return "잎사귀가 노랗게 되었습니다";
+        };
+
+        // new object() 함수를 이용한 객체의 생성실습
+        let myBook = new Object();
+        myBook.title = "어린왕자";
+        myBook.price = 6000;
+        myBook.intro = function () {
+            return this.title+"입니다. "+this.price+"입니다."; // 반환 = return / 출력 = document
+        };
+        myBook.discount = function () {
+            return this.price = this.price-this.price/10; // 계산순서는 대입연산자인 = 오른쪽 식부터 계산됨
+        };
+
+        let myWallet = new Object();
+        myWallet.owner = "홍길동";
+        myWallet.money = 10000;
+        myWallet.show = function () {
+            return "현재"+myWallet.money+"원이 남았습니다.";
+        };
+        myWallet.buy = function (sell) { // 물건금액을 매개변수(sell)로 받아와서 현재의 돈에서 감소
+            console.log(sell); // 매개변수를 통해 값이 제대로 들어왔는지 확인
+            // if문을 사용하여 sell이 money보다 크다면 물건을 살수없다 문자열 리턴
+            // 아니면 남은 금액을  저장
+            if (this.money>=sell) {
+                return this.money-=sell;
+            }
+            else {
+                return "물건을 살수없다";
+            }
+        };
+        // 객체는 주소를 생성해 그 안에 각 값들을 들고있음
+        let yourWallet = myWallet; // 다른 객체를 생성해 같다고 해주면 안의 값을 공유
+        yourWallet.owner = "성춘향" // 공유 시켜둔 다른 한쪽에서 변형시키면 같이 변화
+        console.log(myWallet.owner);
+        console.log(yourWallet.owner);
+        console.log(myWallet.show()); // 객체의 각 값 참조에 this가 아닌 객체이름으로 참조시키면
+        console.log(yourWallet.show()); // 나중에 객체가 변화시 다른 공유 객체의 값도 변하기때문에 this로 사용하는것이 좋음 (69번줄)
+    </script>
+</body>
+</html>

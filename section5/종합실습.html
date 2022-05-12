@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <h1>수정하기 전 제목입니다</h1>
+    </header>
+    <aside id="menu">
+        <ul class="column">
+            <li class="column1">첫번째 내용입니다</li>
+            <li class="column2">두번째 내용입니다</li>
+            <li class="column3">세번째 내용입니다</li>
+            <li class="column4">네번째 내용입니다</li>
+        </ul>
+    </aside>
+    <div class="content">
+        <section class="content-list">
+            <article class="content-body">
+                <ol class="column">
+                    <li class="column1">첫번째 내용입니다</li>
+                    <li class="column2">두번째 내용입니다</li>
+                    <li class="column3">세번째 내용입니다</li>
+                    <li class="column4">네번째 내용입니다</li>
+                </ol>
+            </article>
+        </section>
+        <section class="content-note">
+            <article class="content-body">
+                <p><span class="text-stytle">빈 공간</span>입니다</p>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <p>푸터영역입니다</p>
+    </footer>
+
+    <script>
+        let h1 = document.querySelector("h1");
+        h1.style.color = "blue";
+        h1.style.backgroundColor = "lightgray";
+        h1.textContent = "DOM 이용한 수정";
+
+        let ulli = document.querySelectorAll("ul li");
+        //ulli[0].textContent = "두번째 내용입니다";
+        //ulli[1].textContent = "세번째 내용입니다";
+        //ulli[2].textContent = "네번째 내용입니다";
+        //ulli[3].textContent = "새로 추가한 노드요소입니다";
+        ulli[0].remove();
+        // ulli.removeChild(ul.childNodes[1]); 도 가능
+        let li = document.createElement("li");
+        li.textContent = "새로 추가한 노드요소입니다.";
+        let ul = document.querySelector("ul"); // 위의 ulli는 querySelectorALL이기때문에 새로 지정해줘야함
+        ul.appendChild(li); // appendChild로 추가한 요소는 뒤에서 부터 추가됨
+
+        let olli = document.querySelectorAll("ol li");
+        olli[0].textContent = "내용을 바꾸었습니다"
+        olli[1].textContent = "세번째 내용입니다"
+        olli[2].remove();
+        olli[3].remove();
+        // let ol = document.querySelector("ol") 이후
+        // ol.removeChild(ol.firstElementChild) 
+        // ol.removeChild(ol.lastElementChild) 로 지워줘도 됨
+        // let changeli = document.createElement("li"); 
+        // changeli.textContent = "내용을 바꾸었습니다";
+        // ol.replaceChild(changeli,ol.firstElementChild); 의 형식으로 내용을 바꾸어주어도됨
+
+        let p = document.querySelector("p");
+        document.querySelector("span").setAttribute("style","color:red");
+        document.querySelector("article").appendChild(p.cloneNode(true));
+        document.querySelector("article").appendChild(p.cloneNode(true));
+        // document.queryselector(".text-style").style.color = "red";
+        // document.queryselector(".content-body").appendchild(p.cloneNode(true)); 로도 가능
+
+
+    </script>
+</body>
+</html>

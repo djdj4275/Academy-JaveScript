@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 선언적 (명시적) 함수
+        function functionNameAnother() { // 매개변수 x
+            document.write("홍길동입니다"); // 함수내용 출력
+        } // return 할당하지않고 함수 선언 끝
+    </script>
+</head>
+<body>
+    <script>
+        // 매개변수와 리턴값이 있는 함수의 형태
+        // 선언적 (명시적) 함수
+        function functionName(name) { // 매개변수 name, 값을 받아올수있다.
+            document.write(name); // html에 출력하는 코드
+            return name+"입니다"; // name입니다를 반환, 
+            //모든 함수는 리턴값을 갖는다. 할당되지않은 경우 undefined
+        }   // 함수 선언 끝
+
+        // 함수 호출
+        functionName("홍길동");
+
+        function intro() {
+            document.write("안녕하세요. 반갑습니다");
+        }
+
+        intro();
+
+        functionNameAnother();
+
+    </script>
+</body>
+</html>

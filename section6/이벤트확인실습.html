@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>값을 넣어주세요</p>
+    <form action="">
+        <input type="text" id="text_Value" value="" onfocus="onFocus(event)" onblur="onBlur()">
+        <input type="button" value="확인" onclick="textInput()">
+    </form>
+    <p id="result" onclick="p2(event)">눌러주세요</p>
+    
+    <ol>
+        <li id="first_list"><input type="checkbox" name="" id="checkbox">첫번째 리스트입니다.</li>
+    </ol>
+
+    <script>
+        function textInput() {
+            const textValue = document.querySelector("#text_Value"); // textValue라는 객체를 만들고 그것은 id가 text_Value인것
+            textValue.style.color = "blue"; // textValue의 텍스트 값을 파랑으로
+            document.querySelector("#result").textContent = textValue.value; // id가 result인 p태그에 text를 넣어줌 그 값은 textValue의 value값
+        }
+
+        function onFocus(event) { //매개변수 event를 받아와서 그것을 textinput으로 지정
+            const textinput = event.target;
+            // 이벤트 객체를 들고와서 이벤트가 실행되는 요소(태그)를 가져올수있다.
+            //const textinput = document.querySelector("#text_Value"); 으로 사용가능하지만 짧게 쓰기위해 event 사용
+            // id가 text_Value인 값을 들고와서 textinput으로 선언
+            textinput.style.backgroundColor = "gray"; // 선언된 textinput의 배경색을 gray 색상으로 스타일 추가
+        }
+        function onBlur() {
+            const textinput = document.querySelector("#text_Value");
+            textinput.style.backgroundColor = "white";
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        const p1 = document.querySelector("#result"); // p태그를 들고와 p1라고 선언
+        p1.addEventListener("click",p2); // 선언한 p1는 click하면 p2함수를 실행시키는 이벤트를 포함
+
+        function p2(event) { // p2함수는 실행시 id가 result인 p태그를 들고와 p3로 지정하고 p3의 텍스트와 색을 바꿔줌
+            const p3 = event.target; //document.querySelector("#result")으로 해도됌
+            if (p3.textContent == "숨겨진 단어입니다") {
+                p3.textContent = "눌러주세요";
+                p3.style.color = "black";
+            }
+            else {
+            p3.textContent = "숨겨진 단어입니다";
+            p3.style.color = "red";
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////
+        const checkbox = document.querySelector("#checkbox"); 
+        checkbox.addEventListener("click",check);
+
+        function check(event) {
+            const li = document.querySelector("#first_list")
+            const checkEvent = event.target;
+            if (checkEvent.checked == true) {
+                li.style.color = "lightgray";
+            }
+            else {
+                li.style.color = "black";
+            }
+        }
+        
+    </script>
+</body>
+</html>

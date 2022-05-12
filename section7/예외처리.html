@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try { //try 는 에러가 발생하면 뒤의 catch문을 발생시킨다. (try로 감싼 코드에서 에러가 나면 catch로 보내서 수습)
+            let myError = new Error("직접만든 에러입니다"); // new로 새로운 객체 생성
+            throw myError;  // throw는 뒤에 나오는 문구로 일부러 에러를 발생시킨다
+        } catch(e) {  // e = myError
+            console.log(e.message); // message 속성은 그안의 내용을 도출함
+        }
+        // try-catch문을 사용하면 아래 코드도 실행이 된다.
+        // 에러가 나지 않을경우 바로 아래 코드로 넘어간다.
+        document.write("예외가 발생한 후 실행되는 코드입니다");
+    </script>
+</body>
+</html>

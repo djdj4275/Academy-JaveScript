@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>랜덤숫자</h1>
+    <input type = "button" onclick="numCheck()" value="확인">
+
+    <script>
+        function numCheck() {
+            for (let i=0; i<3; i++) {
+                let random = Math.random()*10; // 0.1~9.2
+                random = parseInt(random); //정수만 가져옴
+                document.write(random);
+            }
+        }
+
+        //function
+        //function numCheck() {
+        //아래의 코드를 이용해서 랜덤한 숫자가 3번 출력되게 하세요.
+        //document.write()이용하여 출력, 단 이전 html의 내용이 사라짐
+            
+        //Math.random() //0이상 1미만의 소수값
+        //let random = Math.random()*10; //0.1~9.2
+        //random = parseInt(random); //정수만 가져옴
+    </script>
+    
+</body>
+</html>

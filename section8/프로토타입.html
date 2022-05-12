@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 아무도것도 상속받지 않으면 Object 객체를 prototype으로 갖는다.
+        function Dog(name, age) { 
+            this.name = name;
+            this.age = age;
+        }
+
+        Dog.prototype.family = "시베리안허스키";
+        Dog.prototype.familyPrint = function() {
+            return this.family;
+        };
+
+        // Dog이라는 생성자 함수를 prototype으로 갖는다
+        let myDog = new Dog("마루",1);
+
+        let yourDog = new Dog("초코",2);
+
+        console.dir(myDog);
+        console.dir(yourDog);
+
+        // 객체에 속성 및 메소드 추가 실습
+        
+        function User(id, pw) {
+            this.id = id;
+            this.pw = pw;
+        }
+        User.prototype.wishlist = "가방"; // ["가방"] 형식으로 배열로 넣어도 상관 x
+
+        let User1 = new User("홍길동","1234");
+
+        let User2 = new User("성춘향","1234");
+
+        console.dir(User1);
+        console.dir(User2);
+        
+        // <프로토타입 링크>
+
+        function Car(m) { // 부모 생성자
+            this.model = m;
+        }
+        Car.prototype.getmodel = function() {return this.model;}; // 프로토타입으로 메소드 추가
+        
+        function ChildCar() {} // 자식생성자
+
+        ChildCar.prototype = new Car(); // 자식이 부모를 상속
+
+        let myCar = new ChildCar(); // 자식 생성자로 객체 생성 후 부모 속성과 메소드확인
+        myCar.model = "전기차";
+        console.log(myCar.getmodel());
+
+        // < classical 방식 실슬 >
+
+        function Animal(name) {
+            this.name = name;
+            this.getName = function() {return this.name;};
+        }
+
+        function Cat(name) {
+            this.name = name;
+            this.getName = function() {
+                return `${this.name}입니다`
+            }   // 동일한 함수 이름일시 부모인 Animal것보다 자신의 것을 우선적 출력 (오버라이딩)
+        }
+        Cat.prototype = new Animal();
+
+        let cat = new Cat("나비");
+        console.log(cat.getName());
+
+    </script>
+</body>
+</html>

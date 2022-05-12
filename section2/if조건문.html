@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        //비가오면 우산을 들고 간다
+        let isRain = true;
+        if (isRain) {
+            document.write("우산을 들고간다");
+        }
+
+        // 점수가 60이상이면 합격
+        let score = 70;
+        if (score>=60) {
+            document.write("합격");
+        }
+        // 실습내용
+        // 조건문 실습 1. 참이면 "확인하였습니다" 출력
+        let check = true;
+        if (check) {
+            document.write("확인하였습니다");
+        }
+
+        // 조건문 실습 1-1. 맞는단어 입력시 참이면 "맞습니다" 출력
+        let word = "의자";
+        if (word == "의자") {
+            document.write("맞습니다");
+        }
+
+        // if else 조건문
+        // 키가 140이상은 놀이기구를 탈 수 있다.
+        // 그렇지 않으면 탈 수 없다.
+        let height = 160;
+        if(height>=140) {
+            document.write("놀이기구를 탈 수 있다")
+        }
+        else {
+            document.write("탈 수 없다")
+        }
+
+        // 스위치를 켜면 불이 켜지고 아니면 꺼진다
+        let button = true;
+        if(button) {
+            document.write("<p>불이 켜졌다</p>");
+        }
+        else {
+            document.write("불이 꺼졌다");
+        }
+
+        // if else 조건문 실습
+        // 1500보다 크면 "버스를 타고 갑니다"
+        // 거짓이면 "걸어갑니다" 출력
+        let money = 1600;
+        if(money>=1500) {
+            document.write("<p>버스를 타고 갑니다</p>");
+        }
+        else {
+            document.write("<p>걸어갑니다</p>");
+        }
+
+        //참이면 "버스를 타고 갑니다"
+        //거짓이면 "걸어갑니다" 출력
+        let isCard = true;
+        if(isCard) {
+            document.write("<p>버스를 타고 갑니다</p>");
+        }
+        else {
+            document.write("<p>걸어갑니다</p>");
+        }
+
+        // 중첩 if문 (두번 else 적지않고 첫번째 else에 ||를 적어 조건을 or로 써도됌)
+        let m = 1000;
+        let Card = true;
+        if (m>=1500) {
+            document.write("<p>돈 - 버스를 타고 갑니다</p>")
+        }
+        else if (Card) {
+            document.write("<p>카드 - 버스를 타고 갑니다</p>")
+        }
+        else {
+            document.write("<p>걸어갑니다</p>")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(true) { // 블록안에서 지정된 let은 블록안에서만 존재
+            let innernum = 10;
+            // let은 블록안에서 작성되면 블록이 끝나면 사라진다
+            console.log(innernum);
+        }
+        let outernum = 20;
+        console.log(outernum);
+
+        let sum = 0;
+        for (let i=0; i<5; i++) { // i값은 지역변수로서 for 안에서만 사용가능
+            console.log(outernum);
+        }
+
+        function sumNum(n) {
+            sum = 100;
+            for (let i=0; i<=n; i++) {
+                sum+=i;
+            }
+            // return sum;
+        }
+        
+        sumNum(3); 
+    </script>
+</body>
+</html>

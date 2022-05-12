@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        //break문
+        let count = 0;
+        let pw = "green"
+        while (pw!="green") {
+            pw = prompt("비밀번호를 입력해주세요");
+            count++;
+
+            if (pw == "green") {
+                document.write(`${count}회 만에 맞췄습니다`);
+                break;
+            }
+            if(count==5) {
+                document.write("시도횟수를 초과했습니다");
+                break;
+            }
+        }
+
+        // continue 문
+        for (let i=1; i<=10; i++) {
+            // 7일때 출력을 하지 않으려고 함
+            if (i == 7) {
+                continue;
+            }
+            document.write(i);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자료형, 연산자, 변수
+        // Number, String, Boolean, undefined, null
+        // + - / * , (나머지 연산자), =(대입 연산자)
+        // 변수 = 값 (대입)
+        // 변수의 특징 : num, numArray (첫글자 숫자x, 두개이상의 단어를 붙일때 첫글자 대문자)
+        // 15, "안녕" (리터럴), 15_20, 함수의 값 (함수) 
+        let string = "문자열입니다";
+        let num = 100;
+        let checkLight = true;
+        let watte = 50; // 현재 기기에 필요한 전기값
+        let elect = 60; // 현재 흐르는 전기
+        checkLight = watte < elect; // 현재 전기의 량이 많아야 불이 켜진다.
+
+
+        // 조건문과 반복문 = 제어문 
+        // if (참일때 실행), else (조건문x), else if (새로운 조건추가), 
+        // 조건이 값으로 들어올때 ex) A, B, 1, 2, 3 >> 스위치(switch) 또는 else if 사용
+        // 스위치 (switch) = case값 : break;사용
+
+        // 조건식 : 결과값이 boolean, >, <, ==, &&, ||, ! 
+        if (true) {
+            document.write("항상 참이므로 출력됩니다");
+        }
+        let onSwitch = true;
+        // + 스위치를 넣어서 스위치가 켜졌을때 켜짐, 스위치가 꺼졌을때 꺼짐 (조건추가)
+        if (checkLight && onSwitch) { // 전기가 들어왔을때 켜짐 
+            document.write("<br>켜졌다");
+        }
+        else { // 전기가 없을때 꺼짐
+            document.write("<br>꺼졌다");
+        }
+
+        let value = 1; // switch에서 확인할 값을 변수에 넣어줌
+        switch (value) { // 변수를 통해서 값 확인
+            case 1 : // case뒤에 비교할 값 작성
+                console.log ("1입니다");
+                break; // 현재 case 출력을 위한 break;
+            case 2 : 
+                console.log ("2입니다");
+                break;
+            case 3 : 
+                console.log ("3입니다");
+                break;
+            default : // else와 같은 역할
+                console.log("없는 숫자입니다");
+        }
+
+        //반복문 - for(횟수), while(조건이 참이라면 반복)
+        // for (let i=0 ; i<10 ; i++) 형식 { }
+        // while (조건식 참일때 반복) { } >> 조건식 끝에 반드시 거짓이 있어야 루프 빠져나옴
+
+        document.write("<p>0</p>") // 1씩 증가하는 값
+        document.write("<p>여러줄의 내용</p>"); // 똑같은 내용 반복
+        document.write("<p>1</p>")
+        document.write("<p>여러줄의 내용</p>");
+        document.write("<p>2</p>")
+        document.write("<p>여러줄의 내용</p>");
+        document.write("<p>3</p>")
+        document.write("<p>여러줄의 내용</p>");
+        document.write("<p>4</p>")
+        document.write("<p>여러줄의 내용</p>"); //이렇게 반복하는것보다 for문을 사용
+
+        for (let i = 0; i<5; i++) {
+            document.write("<p>"+i+"</p>")
+            document.write("<p>여러줄의 내용</p>");
+        }
+
+        let a = 0;
+        while (a<5) {
+            document.write("<p>"+a+"</p>")
+            a++;
+        }
+
+        // for문 - 배열과도 함께 사용가능
+        // ["일" , "책상"] 여러개의 값을 저장
+        // 인덱스를 이용해서 사용
+
+        let = stringArray1 = [];
+        let = stringArray2 = new Array(); // [] 빈칸을 생성
+
+        stringArray1[0] = "영번째 인덱스";
+
+    </script>
+</body>
+</html>

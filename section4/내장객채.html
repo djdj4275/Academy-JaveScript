@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let score = [50,60,40,70,50]; // 내장객채를 사용하기 위해선 객체가 배열 형식이어야함
+        score.sort(); // sort : 배열을 오름차순 또는 내림차순으로 정렬해줌
+        console.log(score);
+        
+        score.pop(); // pop : 배열의 맨 마지막 값을 지움
+        console.log(score);
+        console.log(score.pop()); // console.log와 함께 쓸때에는 마지막 수가 출력이 된다.
+
+        // String 객체의 매소드
+        let word = "FAIL"; 
+        console.log(word.toLowerCase()); // toLowerCase 는 대문자를 소문자로 바꿔줌
+        console.log(word); // String의 내장객체는 값을 완전히 바꾸진 않지만 배열의 내장객체는 값을 완전히 바꾼다.
+        
+        console.log(word.replace("A","B")); // replace는 처음에 적은 문자를 찾아 두번째 적은 문자로 바꿔줌
+
+        // Date 객체의 메소드
+        let today = new Date(); // 오늘의 날짜,시간등을 들고옴
+        console.log(today.getMinutes()); // 그중 지금 현재의 분을 알려줌
+        console.log(today.getSeconds()); // 그중 지금 현재의 초를 알려줌
+        console.log(today.setHours(10)); // 현재의 시간을 세팅해줌
+        console.log(today.getHours()); // 현재의 시간을 알려줌 (위의 세팅으로 10으로 고정이 됨)
+        // get이 붙은 메소드 값은 return해서 가져올수있다.
+        // set이 붙은 메소드는 인수를 넣어 값을 변경할 수 있다.
+    </script>
+</body>
+</html>

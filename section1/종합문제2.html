@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="age"></h1>
+
+    <script>
+    let year = prompt("태어난 년도를 입력해주세요");
+    let age = 2022 - Number(year) + 1;
+    let string = "현재" + age + "세 입니다";
+    document.write(string);
+    
+    console.log(!isNaN(age)); //!표를 붙여서 반대로 => 숫자일시 true, NaN일시 false
+    </script>
+</body>
+</html>

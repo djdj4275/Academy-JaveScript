@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        //switch 조건문 
+        let num = 10;
+        switch (num) {
+            case 0, 10 : 
+            document.write("0 또는 10 입니다");
+            break;
+            case 1 : 
+            document.write("1 입니다");
+            break;
+            default :
+            document.write("다른 숫자입니다");
+        }
+
+        // switch 조건문 실습
+        let score = 'B';
+        switch (score) {
+            case 'A' :
+            document.write("<p>참잘했습니다</p>");
+            break;
+            case 'B' :
+            document.write("<p>잘했습니다</p>");
+            break;
+            case 'C' :
+            document.write("<p>아쉽습니다</p>");
+            break;
+            case 'D' :
+            document.write("<p>분발하세요</p>");
+            break;
+            default :
+            document.write("<p>잘못된 점수입니다</p>");
+        }
+
+        // 양수 음수가 들어가도 양수가 출력되도록
+        // num3가 0보다 크다면 num3그대로 / 반대라면 -1 곱하도록
+        let num3 = -4;
+        let result = (num3>0) ? num3 : num3*-1;
+        document.write(`<p>${result}</p>`);
+
+        //test는 test가 아니기때문에 "초기화값"이 되고
+        // 두번째에서는 test는 "초기화값"이기때문에 "초기화값2"가 아닌 "초기화값"으로 나온다
+        let test;
+        test = test ? test : "초기화값";
+        document.write(test);
+
+        test = test ? test : "초기화값2";
+        document.write(test);
+
+       // 간단한 초기화 값
+        test = test || "초기화"; 
+
+        // 삼항연산자 실습
+        // 둘중에 큰 값을 저장
+        let a = 1, b = 4;
+        let max;
+        max = (a>b) ? a : b;
+        document.write(`<p>${max}</p>`);
+    </script>
+</body>
+</html>

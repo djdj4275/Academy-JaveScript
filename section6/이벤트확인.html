@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {   // 참조할 p태그가 스크립트 보다 밑에 있어 원래라면 오류가 뜨지만 
+                                        // window객체가 load가 되면 아래 내용 실행가능 (어느위치에서도)
+            const p = document.querySelector("p"); 
+            p.textContent = "수정했습니다";
+        }
+    </script>
+</head>
+<body>
+    <p onclick="alert('문자열을 클릭했어요')">단락입니다</p> <!--p태그 클릭시 알림창이 뜸-->
+    <p id="color" onmouseover="color(event)" onmouseleave="color2()">마우스를 올리면 색이 바뀝니다</p>
+    <!--마우스를 올리면 color함수 실행, 마우스가 떠나면 color2함수 실행-->
+
+    <h1>제목입니다</h1>
+    <input type="text" id="title" onfocus="focusIn()" onblur="focusOut()" onchange="backgroundColorChange()"></input>
+    <!--포커스가 올려지면 focusIn함수 실행, 포커스가 나가면 focusOut함수 실행-->
+    <!--focus 속성의 경우 input에서 사용가능-->
+    <!--onchange 속성은 안의 값이 변경되면 함수 실행-->
+    <br><br><br>
+
+    <script>
+        const h1 = document.querySelector("h1"); // h1을 참조하는 h1 함수 선언
+        h1.addEventListener("click",color); // click시 color 함수적용
+        h1.addEventListener("dblclick",color2); // 두번 click시 color2 함수적용
+
+        function color(event) {  // id가 color인것을 들고와서 색을 빨강으로 바꾸는 참조 color를 만듬
+            console.log(event.target)
+            const p = document.querySelector("#color");
+            p.style.color = "red";
+        }
+        function color2() { // id가 color인것을 들고와서 색을 검정으로 바꾸는 참조 color2를 만듬
+            const p = document.querySelector("#color");
+            p.style.color = "black";
+        }
+
+        function focusIn() {
+            const input = document.querySelector("#title"); // id가 title인것을 들고와 포커싱시 텍스트색을 파랑으로 바꾸는 focusIn이라는 함수
+            input.style.color = "blue";
+        }
+        function focusOut() {
+            const input = document.querySelector("#title"); // id가 title인것을 들고와 포커싱이 나가면 텍스트색 회색으로 바꾸는 focusOut이라는 함수
+            input.style.color = "black";
+        }
+
+        function backgroundColorChange() { // id가 title인것을 들고와 안의 값이 변경시 배경색이 분홍으로 바뀌는 함수
+            const input = document.querySelector("#title");
+            input.style.backgroundColor = "pink";
+        }
+    </script>
+</body>
+</html>

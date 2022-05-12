@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> 1. 변수 let, const  </h3>
+        <p> 
+            2번이 정답 (1번 : name 재지정은 let~ 이 아닌 그냥 name) <br>
+            (3번 : const는 절대값 지정이기에 name 재지정으로 바꿀수없음)
+        </p>
+
+    <h3> 2. 자료형 : string, number, boolean, undefined, null 아래 자료형을 적으세요.</h3>
+        <p>
+            1) "Study" = string <br>
+            2) 3040 = number <br>
+            3) true = boolean <br>
+            4) "False" = string <br>
+            5) 302.1 = number <br>
+        </p>
+    
+    <h3>3. 형 변환 : String(), Number() <br> 아래 함수를 콘솔창에 입력했을때 결과값을 적으세요</h3>
+        <p>
+            1)String(123) : "123"<br>
+            2)Number("123") : 123<br>
+            3)Number("string") : NaN (not a number) <br>
+        </p>
+    
+    <h3>4. 기본 연산자 : +, -, *, /, %, = <br> 아래 표현식을 콘솔창에 입력했을때 결과값을 적으세요.</h3>
+        <p>
+            1) 10/4 : 2.5<br>
+            2) 10%2 : 0<br>
+            3) let sum = 1+2+3; 일때 sum의 값을 적으세요. : 6<br>
+            4) 변수 num에 어느 수를 넣어도 변수 choice(0~4) <br>
+            사이의 수가 나오게 하려면 어떤 연산자를 사용해야하는지 적으세요 <br>
+                let choice = num __ 5 : % (num이 어떤수든 5로 나눈 나머지는 0~4중 하나)
+        </p>
+
+    <h3>5. 비교 연산자 : >, <, >=, <=, ==, !=, === 아래 표현식을 콘솔창에 입력시 결과값을 적으세요.  </h3>
+        <p>
+            1) "word" != "javascript" : true (!= 은 같지않단 뜻) <br>
+            2) 0 == "" : true (== 은 같은지 비교 - 둘다 값이 없단뜻으로 봄) <br>
+            3) 0 === false : false (=== 은 서로의 type이 같은지 비교) <br>
+        </p>
+
+    <h3>6. if문 true, false / if / else / else if</h3>
+        <p>
+            1) 10과 20 중 큰 수를 출력하는 조건문을 만드세요 (단, 10과 20은 변수 두어 비교) <br> : console 확인 <br>
+            2) 점수가 65일때, 70이상은 합격, 60이상은 보충수업 60미만은 재수강이라 출력하는 조건문 만드세요 <br> : console 확인
+        </p>
+
+    <h3>7. 논리 연산자 ||, &&, !</h3>
+        <p>
+            let num = 160일때 아래 문장의 결과값을 작성하세요 <br>
+            1) (num < 100) || (num > 170) : false<br>
+            2) (num > 140) && (num < 180) : true<br>
+            3) !(num <120) : true <br>
+        </p>
+    
+    <h3>8. while문</h3>
+        <p>
+            1) while문을 사용하여 1~10까지 출력하세요 : console 확인
+        </p>
+
+    <h3>9. for문</h3>
+        <p>
+            1) for문을 사용하여 10~1 까지 출력하세요 : console 확인 <br>
+            2) for of를 사용하여 let numArray = [1,2,3,4] 의 요소 값을 출력하세요 : console 확인 <br>
+            3) for in을 사용하여 let flowerArray = ["해바라기",“튤립”,“장미”]의 요소 값을 출력하세요 : console 확인<br>
+        </p>
+
+    <h3>10. break, continue</h3>
+        <p>
+            1) while(true) 반복문에서 break;를 이용하여 1~100까지 출력하세요 : console 확인 <br>
+            2) for 반복문에서 1~50까지 출력할 때, continue를 이용하여 3의 배수를 제외하고 출력하세요. : console 확인<br>
+        </p>
+    <script>
+        // 3. 형변환
+        console.log (String(123));
+        console.log (Number("123"));
+        console.log (Number("string"));
+
+        // 4. 기본 연산자
+        let num = 99;
+        let choice = num%5
+        console.log (choice);
+
+        // 5. 비교 연산자
+        console.log("word" != "javascript");
+        console.log(0 == "");
+        console.log(0 === false);
+
+        // 6. if 문
+        let i = 10;
+        let j = 20;
+        if (i<j) {
+            console.log(j);
+        }
+        else {
+            console.log(i);
+        }
+
+        let score = 65;
+        if (score>=70) {
+            console.log("합격");
+        }
+        else if (score>=60) {
+            console.log("보충수업");
+        }
+        else {
+            console.log("재수강");
+        }
+        
+        // 7. 논리 연산자
+        console.log((num < 100) || (num > 170));
+        console.log((num > 140) && (num < 180));
+        console.log(!(num <120));
+
+        // 8. while문
+        let a = 1;
+        while (a<11) {
+            console.log(a)
+            a++;
+        }
+
+        // 9. for문
+        for (let q = 1; q<=10; q++) {
+            console.log(q)
+        }
+        
+        let numArray = [1,2,3,4];
+        for (let num of numArray) {
+            console.log(num);
+        }
+
+        let flowerArray = ["해바라기", "튤립", "장미"];
+        for (let flower in flowerArray) {
+            console.log(flowerArray[flower]);
+        }
+
+        // 10. break, continue
+        let w = 1;
+        while (true) {
+            console.log(w); // 1출력 ~~ ? 100 출력
+            w++; // 값을 1더함
+            if (w == 101) {
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

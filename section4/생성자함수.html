@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수를 이용한 객체 생성
+        // Dog - 속성 : name, age, 메소드 : intro {age살입니다} return
+        function Dog(name, age) { // 값이 들어가는 생성자함수 틀
+            this.name = name;
+            this.age = age;
+            this.intro = function() {
+                return this.age+"살 입니다";
+            };
+        }
+
+        let myDog = new Dog("초코", 1); // 생성자를 만든후 new로서 새로운 객체를 생성해 
+        let yourDog = new Dog("강아지", 2); // 생성자를 참고시키면 틀을 들고올수있다.
+
+
+        // 생성자 함수 실습1
+        function Student(name, score) { // 틀
+            this.name = name;
+            this.score = score;
+            this.study = function() {
+                return this.score += 10;
+            };
+            this.showScore = function() {
+                return this.score;
+            };
+        }
+
+        let myStudent = new Student ("홍길동",70); // 객체생성 (값을가짐)
+        let yourStudent = new Student ("성춘향",80);
+
+        // 생성자 함수 실습2
+        function BusCard(money) { 
+            this.money = money;
+            this.charge = function(pay) {
+                return this.money+=pay;
+            };
+            this.takeBus = function() {
+                if(this.money>=1500) {
+                    return this.money-=1500;
+                }
+                else {
+                    return "잔액이 부족합니다";
+                }
+            };
+            this.showMoney = function() {
+                return this.money;
+            };
+        }
+
+        let myBusCard = new BusCard (1500); 
+        let yourBusCard = new BusCard (1000);
+
+        // 생성자 함수 실습3
+        function Messege(name,content) {
+            this.name = name;
+            this.content = content;
+            this.time = new Date();
+            this.modifiMessege = function(messege) {
+                return this.content = messege;
+            };
+            this.showMessege = function() {
+                return this.name+"님께서 "+this.content+"를 "+this.time+"에 보냈습니다";
+            };
+        }
+
+        let myMessege = new Messege ("홍길동","반갑습니다","0224");
+        let yourMessege = new Messege ("성춘향","안녕하세요","0224");
+        // 매개변수는 2개가 사용됬기때문에 3개의 수가 들어오면 맨 마지막것은 표기되지않는다.
+        // date()로 입력했기때문에 현재 시간이 나오게된다.
+
+        //delete문 (값 지우기)
+        delete myMessege.content;
+        delete myMessege.name;  // name과 content가 사라져 time값만 나오게 됨
+
+
+        //for....in 루프 실습 // in구문으로서 yourMessege의 요소를 들고오고 그에 해당하는 값을 도출
+        for (let n in yourMessege) { // n은 임의의 값 (아무거나 써도 상관 x)
+            console.log(n+": "+yourMessege[n]);
+        }
+
+        let string = "";
+        for (let x in myBusCard) {
+            string = string + x + ":" + myBusCard[x] + ". ";
+        }
+        console.log(string);
+
+        // 객체를 속성으로 삼는 객체
+        let memo = {
+            title : "오늘할일", // title 속성에 문자열 값
+            todo : { // todo 속성에 객체 값 
+                morning : ["청소","준비"], // todo 객체는 3개의 배열을 가짐
+                afternoon : ["수업"],
+                evening : ["정리","독서"]
+            }
+        }
+        console.log(memo.todo.morning[1]);
+        
+
+        // 사용자 객체실습 - 동물병원 진료차트
+        // 생성자 함수 : AnimalChart(name,kind,age)
+        // 속성 : name, kind, age, sickness, condition
+        // 메소드 : receive function(sickness,condition)
+        //         confirm function()
+        function AnimalChart(name,kind,age) {
+            this.name = name;
+            this.kind = kind;
+            this.age = age;
+            this.sickness = "";
+            this.condition = "";
+            this.receive = function(sickness,condition) {
+                this.sickness = sickness;
+                this.condition = condition;
+            };
+            this.confirm = function() {
+                for (let x in this) { //새로 조건이 적힐것들이 전부 포함된 this를 불러옴
+                    if( !(x == "receive" || x == "confirm") ) { // receive와 confirm이 아닌것만 출력
+                        console.log(x+": "+this[x]);
+                    }
+                };
+            };
+        }
+        let first = new AnimalChart("홍길동","강아지","1");
+        first.receive("감기","나쁨");
+        first.confirm();
+
+    </script>
+</body>
+</html>

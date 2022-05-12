@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+		* {margin: 0; padding: 0;}
+		#wrap {width: 100%; height: 900px; margin: 0 auto;}
+		header {width: 100%; height: 150px; background: #81c784;}
+		aside {float: left; width: 20%; height: 700px; background: #66bb6a;}
+		section {float: left; width: 40%; height: 700px; background: #4caf50;}
+		article {float: left; width: 40%; height: 700px; background: #43a047;}
+		footer {clear: both; width: 100%; height: 150px; background: #388e3c;}
+        
+        ul li {list-style-type: none; padding-left: 10px; }
+        ul li a {text-decoration: none; color: black;}
+
+        .footer {text-align: center; padding-top: 40px;}
+        .footer ul li {float: left}
+        .footer address {clear: both;}
+
+        .hidden { display: none;}
+	</style>
+
+</head>
+<body>
+    <div id="wrap">
+		<header>
+            <h1>DOM과 이벤트 연습을 위한 HTML페이지</h1>
+        </header>
+		<aside>
+            <h3>메뉴</h3>
+            <h5 id="hidden" title="누르면 메뉴가 숨겨집니다">메뉴 숨기기</h5>
+            <h5 id="show" title="누르면 메뉴가 보여집니다">메뉴 보이기</h5>
+            <div class="menu" id="menu" >
+                <ul>
+                    <li><a href="#">메뉴1</a></li>
+                    <li><a href="#">메뉴2</a></li>
+                    <li><a href="#">메뉴3</a></li>
+                    <li><a href="#">메뉴4</a></li>
+                </ul>
+            </div>
+
+        </aside>
+		<section>
+            <!-- 게시판 -->
+            <div class="notice1">
+                <h5>Notice1</h5>
+                <ul>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+            <!--//게시판 -->
+            <!-- 게시판2 -->
+            <div class="notice2">
+                <h5>Notice2</h5>
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+            <!--//게시판2 -->
+        </section>
+		<article>
+
+        </article>
+
+		<footer>
+            <div class="container">
+                <div class="row">
+                    <div class="footer">
+                        <ul>
+                            <li><a href="#">사이트 도움말</a></li>
+                            <li><a href="#">사이트 이용약관</a></li>
+                            <li><a href="#">사이트 운영원칙</a></li>
+                            <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                            <li><a href="#">책임의 한계와 법적고지</a></li>
+                            <li><a href="#">게시중단요청서비스</a></li>
+                            <li><a href="#">고객센터</a></li>
+                        </ul>
+                        <address>
+                            Copyright &copy;
+                            <a href="#"><strong></strong></a>
+                            All Rights Reserved.
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	</div>
+
+    <script>
+        const hidden = document.querySelector("#hidden");
+        const show = document.querySelector("#show");
+        hidden.addEventListener("click", hiddenMenu);
+        show.addEventListener("click", showMenu)
+        function hiddenMenu() {
+        hidden.classList.add("hidden");
+        }
+        function showMenu() {
+        hidden.removeAttribute("class");
+        }
+        /*
+        const hiddenE = document.querySelector("#hidden");
+        hiddenE.addEventListener("click", hiddenMenu);
+
+        function hiddenMenu () {
+            const menu = document.querySelector("#menu");
+            const attrNode = document.createAttribute("class");
+            attrNode.value = "hidden";
+            menu.setAttribute(attrNode);
+        }
+
+        const showE = document.querySelector("#show");
+        showE.addEventListener("click",showMenu);
+
+        function showMenu () {
+            const menu = document.querySelector("#menu");
+            menu.removeAttribute("class");
+        }
+        */
+    </script>
+
+<!--
+BOM/DOM/이벤트 - 개념잡기
+
+    ● BOM (브라우져 객체 모델)
+1. 가장 상위의 BOM 객체는 무엇인가요? 
+= window
+2. window.prompt() 함수를 사용하기 위해서는 window객체는 반드시 적어야하나요?
+= 적을필요없음. (window는 적지않아도 기본적으로 인식함)
+3, 타이머 함수(setTimeout)를 사용하면 그 아래에 있는 코드는 바로 실행되나요, 아니면 타
+이머 함수가 실행된 후에 실행되나요?
+그 아래에 있는 코드가 바로 실행된다면 타이머 함수는 어디에 있다가 실행이 되나요?
+= 바로 실행됨
+= 백그라운드에 있다가 실행됨
+
+    ● DOM (문서 객체 모델)
+1. DOM은 어디에서 가져오나요? (어디에서 보여지나요)
+① html ② js ③ css 
+= html
+2. document 객체는 BOM의 어떤 객체의 하위 객체 인가요?
+= window
+3. document의 하위 요소들이 어떤 구조로 이루어져 있는지 트리구조로 그려보세요.
+( html, head, title, body, h1, p )
+= html >>> head(title), body(h1,p) 
+
+    ● DOM을 찾기 위한 document.querySelector 
+1. id="id_name" 찾기 위해서 사용하는 기호는?
+= #id_name
+2. class="class_name" 찾기 위해서 사용하는 기호는?
+= .class_name
+
+    ● DOM과 Node의 형제, 자식, 부모 관계 
+1. <li><a href="#">메뉴1</a></li> 요소의 parentElement는 무엇인가요?
+= ul
+2. <li><a href="#">메뉴1</a></li> 요소의 nextElementSibling 는 무엇인가요?
+= <li><a href="#">메뉴2</a></li>
+2-1. <li><a href="#">메뉴1</a></li> 요소의 nextSibling 는 무엇인가요?
+= text 
+3. <li><a href="#">메뉴1</a></li> 요소는 childNodes로 어떤 요소노드와 텍스트노드를 가
+지고 있나요?(없을시 없음으로)
+= <a href="#">메뉴1</a> (요소노드만)
+3-1. <a href="#">메뉴1</a> 요소는 childNodes로 어떤 요소노드와 텍스트노드를 가지고 있
+나요?(없을시 없음으로)
+= 메뉴1 (텍스트노드만)
+
+    ● Node 제어 및 관리
+1. document.createElement( “p” )을 통하여 무엇을 만들 수 있나요?
+= p태그
+2. document.createTextNode( “반갑습니다” )을 통하여 무엇을 만들 수 있나요?
+= "반갑습니다" 라는 문자열(텍스트)를 추가
+3. document.createAttribute( “class” )을 통하여 무엇을 만들 수 있나요?
+= class라는 속성 생성
+3-1. document.createAttribute( “class” )을 통해 만들어진 속성의 값은 어떻게 넣을 수 있
+나요?
+* 속성노드는 .setAttributeNode( 속성노드 )를 이용해서 추가할 수 있습니다.
+= setAttribute 로서 넣어줄수있음
+4. .setAttribute( “style” , “color : red”)을 통해 무엇을 만들 수 있나요?
+= style 속성을 컬러 레드로 정해줌
+
+    ● 이벤트
+1. 자바스크립트에서 말하는 이벤트란 무엇인가요?
+html과 js 와의 관계에서 살펴봅시다.
+= js에서 정해둔 어떤 특정한 행동을 html에서 시행시 정해진 함수를 실행하는 것
+= html의 Dom에게 어떠한 상황(click,mouseOver)과 같은 일이 일어나면 js에게 알려줌
+2. DOM에 “클릭” 이벤트 발생시킬 수 있는 두가지 방법은 무엇인가요?
+1) 요소의 속성값으로 추가하는 방법 : onclick = "함수(event)"
+2) 자바스크립트에서 추가하는 방법 :  함수1.addEventListener("click",함수2);
+3. 문서 객체(DOM)와 이벤트 리스너와 함수의 관계를 그림으로 그려보세요. 문서객체 : <h5 id="hidden" title="누르면 메뉴가 숨겨집니다">메뉴 숨기기</h5>
+이벤트 리스너 : addEventListener("click", hiddenMenu);
+함수 : function hiddenMenu() {}
+= h5태그를 클릭시 hiddenMenu라는 함수가 실행된다.
+4. 클릭하면 메뉴를 숨기기 위해 <h5>메뉴 숨기기<h5>에
+함수 : function hiddenMenu() {}을 만들어서 추가해주세요.
+= 
+<h5 id="hidden" title="누르면 메뉴가 숨겨집니다">메뉴 숨기기</h5>
+const hidden = document.querySelector("#hidden");
+hidden.addEventListener("click", hiddenMenu);
+function hiddenMenu() {
+    hidden.classList.add("hidden")
+}
+5. 클릭하면 메뉴를 보이기 위해 <h5>메뉴 보이기<h5>에 
+함수 : function showMenu() {}을 만들어서 추가해주세요. * removeAttribute(“속성명”)을 통해 속성을 지울 수 있다
+=
+const hidden = document.querySelector("#hidden");
+        const show = document.querySelector("#show");
+        hidden.addEventListener("click", hiddenMenu);
+        show.addEventListener("click", showMenu)
+        function hiddenMenu() {
+        hidden.classList.add("hidden");
+        }
+        function showMenu() {
+        hidden.removeAttribute("class");
+        }
+-->
+</body>
+</html>

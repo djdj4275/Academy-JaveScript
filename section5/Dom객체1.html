@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제목입니다</title>
+</head>
+<body>
+    <h1 id = "title">제목입니다</h1>
+
+    <div class="class">
+        <ul>
+            <li>첫번째 요소입니다</li>
+            <li>두번째 요소입니다</li>
+            <li>세번째 요소입니다</li>
+            <li>네번째 요소입니다</li>
+        </ul>
+    </div>
+
+    <form id = "form">
+        <input type = "text">
+        <input type = "submit" value = "제출">
+    </form>
+
+    <a href="">링크입니다</a>
+    <p class = "class-name">단락입니다</p>
+
+    <script>
+        //document.querySelectorAll(".m_text_list li")[0];
+        // m_text_list란 클래스의 요소안의 li의 0번째 인덱스 요소를 들고옴
+        let aElement = document.querySelector("a"); //a태그를 찾아오고
+        aElement.innerText = "innerHTML로 수정한 내용입니다"; // a태그 안의 내용과
+        aElement.href = "https://www.naver.com"; // 링크를 변경시킬수있다.
+        aElement.style.textDecoration = "none"; // 링크의 밑줄을 없앰
+        aElement.style.color = "red"; // 링크의 텍스트색을 빨강으로
+
+        let pElement = document.querySelector("p"); // p태그를 찾아오고
+        pElement.className = "new-class"; // p태그의 클래스 이름을 바꿔줌
+
+        // 실습 1
+        
+        let classElement = document.querySelector(".new-class"); 
+        //p태그의 클래스를 위에서 바꿔줬기때문에 바뀐 클래스를 적어줘야함
+        classElement.innerHTML = "클래스를 통해 수정된 내용입니다";
+
+        //document.querySelector(".new-class").innerHTML = "" 으로 해도 가능
+
+        let titleElement = document.querySelector("#title"); // class는 앞에 . id는 앞에 #을 붙여야 참조가 가능
+        titleElement.innerHTML = "아이디를 들고 와서 수정된 내용입니다";
+
+        let liElement = document.querySelectorAll("li");   
+        // NodeList : 접근방법은 배열과 동일
+        for (let i = 0; i<liElement.length; i++) {          
+            liElement[i].innerHTML = "한번에 수정한 내용입니다"; 
+        } // list의 갯수만큼 바꿔주기위해서 for문을 통해서 반복
+
+        // 실습 2
+        let hrefElement = document.querySelector("a");
+        hrefElement.href = "https://www.daum.net";
+        //  document.querySelector("a").href="https://www.daum.net"; 와 같음
+
+        let formElement = document.querySelector("#form input");
+        formElement.disabled = "true";
+        // document.querySelector("#form input").disabled="true"; 와 같음
+        document.querySelector("#form input").placeholder="힌트입니다";
+
+        // 실습 3
+        document.querySelector(".new-class").style.backgroundColor="yellow";
+        document.querySelector("#title").style.textDecoration="line-through";
+        let colorElement = document.querySelectorAll("li");
+        for (let i = 0; i<colorElement.length; i++) {
+            colorElement[i].style.color="blue";
+        }
+
+        // firstchild 는 첫번째요소 , lastchild는 마지막요소
+        // sibling은 형제값 (바로다음값)
+        // childNodes는 자식요소값(아랫값) 전부
+        // parentNode는 부모값(윗값)
+        liElement[0].childNodes[0].nodeValue="nodeValue를 통해 바꾸었습니다";
+        // liElement의 인덱스 0 = 첫번째 li요소
+        // childNodes의 인덱스 0 = 첫번째 li안의 텍스트 첫 요소 (하나뿐이라면 그 텍스트)
+        // nodeValue = 그 텍스트 값의 value값을 바꿈
+        let li2 = document.querySelector("li").nextElementSibling;
+        // 첫번째 li요소의 다음요소인 li를 nextsibling으로 지정해서 li2로 정의
+        li2.childNodes[0].nodeValue="형제노드로 접근하여 수정";
+        // li2의 자식값중 첫번째값을 들고와 value값을 바꿔줌
+        li2.firstChild.nodeValue="firstchild를 이용해서 접근가능";
+        // li2의 첫번째 자식값을 들고와 value값을 바꿔줌 (바꾸기전엔 위 형제노드 수식이 적용중이었음)
+
+        // 실습 1
+        let h1Element = document.querySelector("h1").childNodes[0].nodeValue;
+        document.write(`${h1Element}<br>`); // h1태그의 자식태그중 첫번째 값 요소를 들고와 h1Node라 정의후 출력
+
+        let ulNext = document.querySelector("li").parentNode.nextElementSibling;
+        document.write(`${ulNext}<br>`); // li의 부모값은 ul이고 ul은 형제값이 없이 혼자이므로 null 즉 빈값이 나온다.
+
+        let ulNext2 = document.querySelector("ul").firstChild.nextSibling;
+        document.write(`${ulNext2}<br>`); // ul의 첫번째 요소인것의 형제요소는 li
+
+        // 실습 2
+        let ul = document.querySelector("ul").nodeName;
+        document.write(`${ul}<br>`);
+        let ul2 = document.querySelector(".class").nodeName;
+        document.write(`${ul2}<br>`);
+
+        let h1First = document.querySelector("h1").firstChild.nodeValue = "nodeValue 값을 통해 내용을 바꾸었습니다.";
+
+        
+        let pElements = document.createElement("p"); // 요소 만들기 (요소는 태그를 말함)
+        pElements.innerHTML="값을 추가합니다";
+        let atrr = document.createAttribute("style"); // 속성 만들기
+        atrr.value = "color : red";
+        pElements.setAttributeNode(atrr); // 만든 요소에 만든 속성 넣어주기 (만든 요소는 한곳에 붙이고 나면 다른곳에 사용 불가)
+
+        document.querySelector(".class").appendChild(pElements); // 미리 만든 속성과 요소를 다른 요소의 하위요소로 넣어주기
+        document.querySelector("h1").setAttributeNode(atrr.cloneNode(true));
+        //atrr값을 h1태그에 적용시키는것인데 만든속성은 한번 다른곳에 사용하면 사용이 안되기때문에 클론으로 하나 더 만들어서 넣어주기
+        
+        liElement[3].remove(); // li의 3번째인덱스인 마지막 li요소를 없애줌
+        // ul.removeChild(ul.childNodes[5]) 도 가능 (childNodes로 부르면 text,li,text,li,text... 순서로 가기때문에 3번째가 아닌 5번째임)
+        pElement.removeAttribute("style"); //pElement의 노란배경 스타일속성 삭제
+
+
+        // 노드 관리 실습 1
+        let plusp = document.createElement("p"); // p 태그 생성
+        document.querySelector("body").appendChild(plusp); // body에 만든 p태그를 추가함
+        // document.body.appendchild(plusp); 도 상관없음
+
+        let plustext = document.createTextNode("textnode를 이용한 텍스트입니다"); // 텍스트 입력한것을 정의
+        plusp.appendChild(plustext); // 정의한 텍스트를 만든 p태그에 넣어줌
+
+        let plusblue = document.createAttribute("style"); // 스타일이라는 속성요소 생성
+        plusblue.value = "color : blue"; // 그 속성요소의 값을 입력
+        plusp.setAttributeNode(plusblue); // 만든 속성값을 만든 p태그에 넣어줌
+
+        // 노드 관리 실습 2
+        plusp.removeAttribute("style"); // 만든 p태그에 들어간 스타일 속성요소를 삭제(컬러:블루)
+        
+        let ul1 = document.querySelector("ul");
+        ul1.firstChild.remove() // ul의 자식태그인 li중 첫번째 li를 삭제
+
+        document.querySelector("ul").remove(); // ul태그 자체 삭제
+
+        // 노드 관리 실습 3
+        let h1clone = document.querySelector("h1"); // h1을 들고와서 다른이름으로 정의
+        document.body.append(h1clone.cloneNode(true)); // 들고온 h1의 서식을 cloneNode로 복제해 body에 붙임
+
+        let pclone = document.querySelector("p"); // 위와 동일  (cloneNode(true)의 의미는 밑의 하위요소(내용)도 다 들고올지 말지의 여부다)
+        document.body.appendChild(pclone.cloneNode(true)); // 위와 동일
+        
+
+        let p = document.querySelector("p"); // p태그를 들고와서 p로 정의
+        p.textContent = "textContent로 바꾼 내용입니다." // p의 내용값을 바꿈
+        p.setAttribute("class","name"); // p의 속성값중 클래스명을 이름으로 바꿈
+        p.setAttribute("style","color:blue"); // p의 속성값중 스타일을 색.파랑으로 바꿈
+        p.style.backgroundColor = "gray"; // p의 배경색을 회색으로 지정
+        p.setAttribute("style","color:yellow");  // p의 속성 스타일 값을 색.노랑으로 다시 바꿈
+
+        let li = document.createElement("li");
+        li.textContent = "교체할 값입니다";
+        let ul3 = document.querySelector("ul");
+        // // ul3.replaceChild(li,ul,firstElementChild);
+        let a = document.createAttribute("a");
+        a.textContent="확인";
+        // // let liSibling = ul.firstElementChild.nextElementSibling
+        // // liSibling.replaceChild(a,liSibling.childNodes[0]);
+        // 이렇게 하면 li중 두번째 li의 값이 "확인" 으로 바뀌게 된다.
+
+        // 노드 조작 실습 1
+        let h1 = document.querySelector("h1"); // h1태그를 들고와서 h1으로 정의
+        h1.textContent = "textContent로 바꾼 내용입니다"; // 들고온 h1의 텍스트 문구를 변경
+        h1.setAttribute("class","classname"); // h1의 class 속성을 classname이라는 이름으로 추가
+        h1.setAttribute("style","color:blue"); // h1의 스타일 속성을 컬러.파랑으로 추가
+        // h1.style.color = "blue" 로 해줘도 됌
+    </script>
+</body>
+</html>
